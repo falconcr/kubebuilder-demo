@@ -1,0 +1,20 @@
+apiVersion: operator.my.company/v1
+kind: PodFriend
+metadata:
+  labels:
+    app.kubernetes.io/name: demo-kubebuilder
+    app.kubernetes.io/managed-by: kustomize
+  name: podfriend-sample
+spec:
+  name: gerardo
+
+---
+apiVersion: operator.my.company/v1
+kind: PodFriend
+metadata:
+  labels:
+    app.kubernetes.io/name: demo-kubebuilder
+    app.kubernetes.io/managed-by: kustomize
+  name: podfriend-sample2
+spec:
+  name: jack

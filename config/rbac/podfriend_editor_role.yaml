@@ -1,0 +1,27 @@
+# permissions for end users to edit podfriends.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: demo-kubebuilder
+    app.kubernetes.io/managed-by: kustomize
+  name: podfriend-editor-role
+rules:
+- apiGroups:
+  - operator.my.company
+  resources:
+  - podfriends
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - operator.my.company
+  resources:
+  - podfriends/status
+  verbs:
+  - get
