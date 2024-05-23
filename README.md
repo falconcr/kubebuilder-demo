@@ -1,8 +1,8 @@
 # demo-kubebuilder
-// TODO(user): Add simple overview of use/purpose
 
 ## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+Let’s do a little exercise: we’ll build a simple foo operator which has no real use, except to demonstrate the capabilities of an operator.
+Our operator will manage the CRD named PodFriend. We fetch the PodFriend resource that triggered the reconciliation request to get the name. Then, we list all the pods that have the same name as PodFriend. If we find one (or more), we update PodFriend's happy status to true, else we set it to false.
 
 ## Getting Started
 
@@ -11,6 +11,13 @@
 - docker version 17.03+.
 - kubectl version v1.11.3+.
 - Access to a Kubernetes v1.11.3+ cluster.
+
+### To test
+- make manifests
+
+- make install
+
+- make run
 
 ### To Deploy on the cluster
 **Build and push your image to the location specified by `IMG`:**
