@@ -22,11 +22,13 @@ The meaning of each part of the command is explained in detail below:
 `kubebuilder` startup
 This is the main command to initialize a new project with Kubebuilder. Create the basic structure of the project, including the directories and files necessary to begin developing a controller.
 
---domain my.company
+`--domain my.company`
 The --domain option specifies the domain to use in the API Group of the Custom Resource Definitions (CRDs) that you will create with this operator. This domain is used to construct the full name of the API group, for example, if you have a MyResource resource in the apps group, the full group could be myresource.apps.my.operator.
 
---repo my.domain/tutorial
+`--repo my.domain/tutorial`
+
 The --repo option defines the Go module (the Go module path) to use for the project. This is important because Go uses the module name to manage project dependencies. In this case, my.domain/tutorial will be the name of the Go module. This also sets the base import path for your project, which is important for Go to find packages correctly.
+
 
 #### Practical example
 Let's break down what happens when you run this command:
@@ -36,6 +38,10 @@ Project Initialization: A directory and file structure is created that Kubebuild
 Domain: The my.operator domain will be used to generate the full name of the API groups of your CRDs. For example, if you define a resource in the apps group, the group's distinguished name will be `apps.my.company`.
 
 Repository/Go Module: The Go module my.domain/tutorial is set in the project's go.mod file, which sets up the Go development environment for your operator. This is crucial for dependency management and for Go tools to know how to import and compile your code.
+
+#### Create a API
+
+`kubebuilder create api --group operator --version v1 --kind PodFriend`
 
 ### Structure
 
