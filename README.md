@@ -57,12 +57,21 @@ Repository/Go Module: The Go module my.domain/tutorial is set in the project's g
 
 - main.go: Entry point of the application, where the controller manager is configured and started.
 
-### To test
+### Reproduce the scenarios
+- cd <project-directory>
+
 - make manifests
 
 - make install
 
 - make run
+
+- `kubectl get podfriends` (check that there aren't podfriends)
+- `kubectl apply -f ./config/samples/operator_v1_podfriend.yaml` #Create 2 podfriends
+- `kubectl describe pod <podfriend>` #Show that the podfriend has status false
+- `kubectl run <name_pod_friend> --image=nginx` #Use the name of podfriend that you have
+- Check the status of podFriends, one of them must has the status in true.
+- Delete the pod. check the podfriend, the status must be in false.
 
 ### To Deploy on the cluster
 **Build and push your image to the location specified by `IMG`:**
